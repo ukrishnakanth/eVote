@@ -1,0 +1,30 @@
+<div class="col-md-10 col-md-offset-1">
+
+
+  <h2>Manage-Elections</h2>
+  <table class="table table-striped ">
+    <th>Election ID</th>
+    <th>Constituency</th>
+    <th>Status</th>
+    <tr *ngFor="let e of electionList">
+      <td>{{e.ElectionId}}</td>
+      <td>{{e.ConstituencyId.constituencyName}}</td>
+      <td>{{e.ElectionStatus}}</td>
+      <td>
+        <button type="button" *ngIf="e.ElectionStatus != 3" class="btn btn-primary" (click)="startElection(e.ElectionId, e.ElectionStatus)">{{e.btn}}</button>
+      </td>
+      <!-- <td>
+        <button type="button" class="btn btn-success">Conclude</button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-info">Declare Results</button>
+      </td> -->
+
+    </tr>
+  </table>
+
+  <br />
+  <a [routerLink]="['../']" class="btn btn-link">Back</a>
+
+
+</div>
